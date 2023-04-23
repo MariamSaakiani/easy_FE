@@ -7,11 +7,17 @@
   <button (click)="captureImg()">Capture</button>
 </ng-container>
 
-<div *ngIf="detection?.detections">
-  Detected a {{ detection.detections.labels[0].Label }}
-  <p>Price per kg :{{ prices[detection.detections.labels[0].Label] }} USD</p>
-  Total KG:
-  <input [(ngModel)]="weight" />
-  <p>Price: {{ prices[detection.detections.labels[0].Label] * weight || 0 }}</p>
+
+<div class="result" *ngIf="detection?.detections" >
+  <b>Detected a </b>
+  {{ detection.detections.labels[0].Label }}
+  <p><b>Price per kg :</b>
+    {{ prices[detection.detections.labels[0].Label] }}
+     USD</p>
+  <b>Weight: </b>
+  <input [(ngModel)]="weight" class="result"/>
+  <p><b>Price:</b>
+     {{ prices[detection.detections.labels[0].Label] * weight || 0 }}
+    </p>
   <button (click)="detection = null">Go Back</button>
 </div>

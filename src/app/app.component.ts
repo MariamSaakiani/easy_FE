@@ -19,7 +19,7 @@ export class AppComponent implements AfterViewInit {
   trigger$: Subject<void> = new Subject<void>();
   imagePath!: SafeResourceUrl;
   detection: any;
-  weight: any;
+  weight: number = 0;
   constructor(private http: HttpClient, private elRef: ElementRef) {}
   prices: any = {
     person: 2,
@@ -39,6 +39,10 @@ export class AppComponent implements AfterViewInit {
         this.detection = detection;
         console.log(detection);
       });
+
+      if(this.detection?.detections){
+        //this.weight = წონის მიღების სერვისი უნდა გამოვიძახოთ აქ 
+      }
   }
 
   captureImg() {
